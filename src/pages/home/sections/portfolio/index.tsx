@@ -1,22 +1,27 @@
-
 export default function Portfolio() {
-    return (
-        <div className="portfolio-section">
-        <p className="portfolio-title">Portfolio</p>
-        <div className="portfolio-group">
-
-          <div className="portfolio-image-container group">
-            <img src="card-perfume.png" alt="perfume-image" className="portfolio-image"></img>
-            <div className="portfolio-overlay">Perfume Card</div>
-          </div>
-
-          <div className="portfolio-image-container group">
-            <img src="card-htmlcss.png" alt="htmlcss-image" className="portfolio-image"></img>
-            <div className="portfolio-overlay">HTML & CSS Card</div>
-          </div>
-
+  return (
+    <div className="portfolio-section" id="portfolio">
+      <p className="portfolio-title">Portfolio</p>
+      <div className="portfolio-group">
+        <div className="portfolio-image-container group">
+          <img
+            src="card-perfume.png"
+            alt="perfume-image"
+            className="portfolio-image"
+          ></img>
+          <div className="portfolio-overlay">Perfume Card</div>
         </div>
-          <p className="portfolio-text">Project Title: "Perfume Card Application for Desktop and Mobile"</p>
+
+        <div className="portfolio-image-container group">
+          <img
+            src="card-htmlcss.png"
+            alt="htmlcss-image"
+            className="portfolio-image"
+          ></img>
+          <div className="portfolio-overlay">HTML & CSS Card</div>
+        </div>
+      </div>
+      {/* <p className="portfolio-text">Project Title: "Perfume Card Application for Desktop and Mobile"</p>
           <p className="portfolio-text">Technologies: Next.js, React.js, Tailwind CSS</p>
           
           <p className="portfolio-star-title">Situation:</p>
@@ -48,7 +53,7 @@ export default function Portfolio() {
             <p className="portfolio-text">Achieved positive user feedback on the application's sleek design and ease of use.  </p>
             <p className="portfolio-text">Improved customer retention through personalized recommendations and saved preferences.</p>
             <p className="portfolio-text">The client reported a significant boost in online perfume sales and customer satisfaction.</p>
-          </li>
-      </div>
-    )
+          </li> */}
+    </div>
+  );
 }

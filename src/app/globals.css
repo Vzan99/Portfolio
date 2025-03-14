@@ -5,8 +5,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Fraunces");
 @import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Inter");
 
-:root {
+root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -24,29 +25,54 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Navbar */
+@layer components {
+  .navbar {
+    @apply flex justify-between items-center;
+    @apply h-[30px] md:h-[50px] lg:h-[50px] bg-[#25252a] px-10;
+  }
+
+  .mylogo {
+    @apply rounded-full object-contain;
+    @apply h-[20px] md:h-[40px] lg:h-[40px];
+  }
+
+  .navbar-links-group {
+    @apply flex gap-[30px] md:gap-[50px] lg:gap-[50px];
+  }
+
+  .navbar-button {
+    @apply text-sm md:text-base lg:text-lg font-inter;
+    @apply hover:text-[#E8C178] transition;
+  }
+}
 
 /* Hero Section */
 @layer components {
   .hero-section {
-    @apply relative flex bg-[#34353A] sm:h-2/3 md:h-screen lg:h-screen px-4 md:px-8 lg:px-10 bg-cover bg-right-bottom bg-no-repeat;
-    background-image: url('/myphoto7bw.png');
+    @apply flex bg-[#34353A] h-2/3 md:h-screen lg:h-screen;
+    @apply px-4 md:px-8 lg:px-10 bg-cover bg-right-bottom bg-no-repeat;
+    background-image: url("/myphoto7bw.png");
     background-size: 40% auto;
   }
 
   /* Container inside Hero Section */
-  .hero-container { 
-    @apply flex flex-col items-start justify-center ;
-    @apply ml-[3%] mr-[40%] md:ml-[6%] md:mr-[45%] lg:ml-[6%] lg:mr-[45%] ;
-    @apply py-[10%] ;
+  .hero-container {
+    @apply flex flex-col items-start justify-center;
+    @apply ml-[3%] md:ml-[6%] lg:ml-[6%];
+    @apply mr-[40%] md:mr-[45%] lg:mr-[45%] py-[10%];
   }
 
   /* Text Styling */
   .hero-text {
-    @apply text-sm md:text-2xl lg:text-3xl text-gray-100 font-[Montserrat];
+    @apply text-sm md:text-2xl lg:text-3xl;
+    @apply text-gray-100 font-fraunces;
   }
 
   .hero-name {
-    @apply text-xl md:text-3xl lg:text-4xl pb-1 lg:pb-2 text-[#E8C178] font-[Fraunces];
+    @apply text-xl md:text-3xl lg:text-5xl;
+    @apply text-[#E8C178] font-fraunces font-medium;
+    @apply pb-1 lg:pb-2;
   }
 
   .hero-image-container {
@@ -54,70 +80,86 @@ body {
   }
 
   .hero-image {
-    @apply h-[300]
+    @apply h-[300px];
   }
 
   .description {
-    @apply text-sm md:text-xl lg:text-2xl py-1 text-gray-100 font-[Poppins];
+    @apply text-sm md:text-xl lg:text-2xl;
+    @apply text-gray-100 font-inter py-1;
   }
 
   /* Contact Me Button */
   .contact-btn {
-    @apply text-sm md:text-base lg:text-xl text-[#E8C178] font-[helvetica]; 
-    @apply border-[#E8C178] rounded-lg hover:bg-black transition;
-    @apply w-[90px] h-[25px] md:w-[150px] md:h-[50px] lg:w-[150px] lg:h-[50px];
-    @apply mt-[1px] md:mt-2 lg:mt-6; 
-    @apply px-[1px] py-[1px];
-    @apply border-[1px] md:border-[3px] lg:border-[3px]; 
+    @apply h-[25px] md:h-[50px] lg:h-[50px];
+    @apply w-[85px] md:w-[150px] lg:w-[150px];
+    @apply text-sm md:text-base lg:text-xl;
+    @apply text-[#E8C178] font-inter;
+    @apply border-[#E8C178] border-[1px] md:border-[3px] lg:border-[3px];
+    @apply hover:bg-black rounded-lg transition;
+    @apply mt-1 md:mt-2 lg:mt-6 px-[1px];
   }
-
 }
 
 /* About Me Section */
 @layer components {
   .aboutme-section {
-    @apply relative flex flex-col bg-[#34353A] h-1/3 p-4 md:p-10 lg:p-20 py-5 font-[Fraunces];
+    @apply relative flex flex-col h-1/3;
+    @apply bg-[#34353A] font-fraunces;
+    @apply p-4 md:p-10 lg:p-20 py-5;
   }
 
   .aboutme-title {
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100;
+    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-semibold;
   }
 
   .aboutme-text {
-    @apply text-sm md:text-xl lg:text-2xl text-gray-100 font-["Montserrat"];
-    @apply ml-8 md:ml-10 md:mt-6 lg:ml-12 lg:mt-8;
+    @apply text-sm md:text-xl lg:text-2xl;
+    @apply text-gray-100 font-inter;
+    @apply ml-2 md:ml-10 md:mt-6 lg:ml-12 lg:mt-8;
   }
 }
 
 /* Skills Section */
 @layer components {
   .skills-section {
-    @apply relative h-1/2 bg-[#34353A] p-4 md:p-8 lg:p-10 ; 
+    @apply relative h-1/2 bg-[#34353A];
+    @apply p-4 md:p-8 lg:p-10;
   }
 
   .skills-title {
-    @apply text-xl md:text-xl lg:text-4xl text-gray-100 text-center;
-    @apply md:pt-3 lg:pt-3;
-    @apply pb-3 md:pb-[40px] lg:pb-[50px] font-[Fraunces];
+    @apply text-xl md:text-xl lg:text-4xl;
+    @apply text-gray-100 text-center font-fraunces;
+    @apply md:pt-3 lg:pt-3 font-semibold;
+    @apply pb-[12px] md:pb-[40px] lg:pb-[50px];
+  }
+
+  .skills-group-container {
+    @apply flex flex-col gap-3 md:gap-8 lg:gap-10;
   }
 
   .skills-group {
-    @apply relative gap-3 md:gap-8 lg:gap-10 flex items-center justify-center;
+    @apply relative flex items-center justify-center;
+    @apply gap-3 md:gap-8 lg:gap-10;
   }
 
   .skills-icon-container {
     @apply flex flex-col items-center justify-center;
-    @apply bg-[#28292c] h-[70px] w-[70px] md:h-[125px] md:w-[125px] lg:h-[250px] lg:w-[250px]; 
-    @apply rounded-lg shadow-md;
+    @apply h-[70px] md:h-[125px] lg:h-[250px];
+    @apply w-[70px] md:w-[125px] lg:w-[250px];
+    @apply bg-[#28292c] rounded-xl shadow-md;
     @apply hover:bg-[#E8C178] transition;
   }
 
   .skills-image {
-    @apply h-[25px] w-[25px] md:h-[50px] md:w-[50px] lg:h-[100px] lg:w-[100px]; 
+    @apply h-[25px] md:h-[50px] lg:h-[100px];
+    @apply w-[25px] md:w-[50px] lg:w-[100px];
   }
-  
-  .text-skills{
-    @apply  text-sm md:text-xl lg:text-2xl pt-1 md:pt-2 lg:pt-3 text-gray-100 font-[Helvetica];
+
+  .text-skills {
+    @apply text-sm md:text-xl lg:text-2xl;
+    @apply text-gray-100 font-inter;
+    @apply pt-1 md:pt-2 lg:pt-3;
   }
 }
 
@@ -128,75 +170,208 @@ body {
   }
 
   .portfolio-title {
-    @apply text-center text-xl md:text-2xl lg:text-4xl text-gray-100 font-[Fraunces];
+    @apply text-center text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-fraunces font-semibold;
     @apply pb-3 md:pb-5 lg:pb-10;
   }
 
   .portfolio-group {
-    @apply flex justify-center items-center gap-3 md:gap-4 lg:gap-6 pb-10;
+    @apply flex justify-center items-center;
+    @apply gap-3 md:gap-4 lg:gap-10 pb-10;
   }
 
   .portfolio-image-container {
     @apply relative flex items-center justify-center;
-    @apply bg-[#28292c] h-[125px] w-[125px] md:h-[125px] md:w-[125px] lg:h-[300px] lg:w-[300px]; 
-    @apply shadow-md;
-    @apply hover:bg-[#E8C178] transition;
+    @apply h-[125px] md:h-[125px] lg:h-[300px];
+    @apply w-[125px] md:w-[125px] lg:w-[300px];
+    @apply bg-[#28292c] shadow-md;
   }
-  
+
   .portfolio-image {
     @apply w-full h-full object-cover;
   }
 
   .portfolio-overlay {
-    @apply absolute inset-0 bg-black/50 opacity-0 transition-all duration-500 group-hover:opacity-100;
     @apply flex justify-center items-center;
-    @apply text-sm md:text-base lg:text-xl font-[Fraunces];
+    @apply text-sm md:text-base lg:text-xl font-inter;
+    @apply absolute inset-0 transition-all duration-500;
+    @apply bg-black/50 opacity-0 group-hover:opacity-100;
   }
 
   .portfolio-text {
-    @apply text-sm md:text-xl lg:text-xl text-gray-100 font-[Helvetica];
-    @apply ml-4 md:ml-10 md:mt-6 lg:ml-12 lg:mt-8;
+    @apply text-sm md:text-xl lg:text-xl;
+    @apply text-gray-100 font-inter;
+    @apply ml-4 md:ml-10 lg:ml-12;
+    @apply mt-2 md:mt-6 lg:mt-8;
   }
-  
+
   .portfolio-text-list {
-    @apply flex flex-col text-sm md:text-xl lg:text-xl text-gray-100 font-[Helvetica];
-    @apply ml-6 md:ml-10 lg:ml-12;
+    @apply flex flex-col text-sm md:text-xl lg:text-xl;
+    @apply text-gray-100 font-inter;
+    @apply md:ml-10 lg:ml-12;
   }
 
   .portfolio-star-title {
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100 font-[Fraunces];
-    @apply ml-4 md:ml-10 md:mt-6 lg:ml-12 lg:mt-8;
+    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-inter;
+    @apply ml-4 md:ml-10 lg:ml-12;
+    @apply mt-2 md:mt-6 lg:mt-8;
   }
 }
 
 /* Experience Section */
 @layer components {
   .experience-section {
-    @apply h-screen bg-[#28292c] p-4 md:p-8 lg:p-10;
+    @apply bg-[#28292c];
+    @apply px-5 md:px-10 lg:px-12;
+    @apply pt-4 md:pt-8 lg:pt-8;
+    @apply pb-5 md:pb-12 lg:pb-14;
   }
-  
+
   .experience-title {
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100 font-[Fraunces];
-    @apply ml-4 md:ml-10 md:mt-6 lg:ml-12 lg:mt-8;
+    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-fraunces font-semibold;
+    @apply ml-0 md:ml-10 lg:ml-12;
+    @apply mt-0 md:mt-2 lg:mt-2;
   }
-  
-  .experience-text {
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100;
-  }
-  
+
   .experience-group {
-    @apply flex mt-10 ml-[100px] gap-8 w-1/2;
+    @apply flex gap-4 md:gap-6 lg:gap-8;
+    @apply md:ml-[80px] lg:ml-[100px];
+    @apply mt-4 md:mt-8 lg:mt-10;
+  }
+
+  .experience-text {
+    @apply text-xl md:text-2xl lg:text-4xl
+    @apply text-gray-100 font-inter;
+  }
+
+  .experience-group-year {
+    @apply flex w-[100px] md:w-1/6 lg:w-1/6 justify-end;
   }
 
   .experience-year {
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100 font-[Fraunces];
+    @apply text-base md:text-xl lg:text-2xl;
+    @apply text-gray-100 font-fraunces;
   }
 
-  .experience-job-card {
-    @apply w-[30px] h-[30px] mt-3 border-[3px];
+  .experience-group-symbol {
+    @apply flex;
   }
 
-  .experience-job-title{
-    @apply text-xl md:text-2xl lg:text-4xl text-gray-100 font-[Fraunces];
+  .experience-symbol {
+    @apply flex h-full w-1 bg-[#E8C178] rounded-sm;
+  }
+
+  .experience-group-text {
+    @apply flex flex-col w-full md:w-full lg:w-[800px];
+  }
+
+  .experience-job-title {
+    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply text-[#E8C178] font-fraunces;
+  }
+
+  .experience-job-location {
+    @apply text-base md:text-xl lg:text-2xl;
+    @apply text-[#E8C178] font-fraunces;
+  }
+
+  .experience-job-desc {
+    @apply text-base md:text-xl lg:text-xl;
+    @apply text-gray-100 font-inter ml-6;
+  }
+}
+
+/* Testimonial Section */
+@layer components {
+  .testimonial-section {
+    @apply h-1/2 bg-[#34353A] p-4 md:p-8 lg:p-10;
+  }
+
+  .testimonial-title {
+    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-fraunces font-semibold;
+    @apply ml-0 md:ml-10 lg:ml-12;
+    @apply mt-0 md:mt-2 lg:mt-2;
+  }
+
+  .testimonial-container {
+    @apply flex flex-col md:flex-row lg:flex-row;
+    @apply items-center justify-center;
+    @apply gap-1 md:gap-5 lg:gap-8;
+  }
+
+  .testimonial-container-shape {
+    @apply flex w-4 md:w-16 lg:w-16 items-center;
+  }
+
+  .testimonial-shape {
+    @apply flex bg-[#E8C178] rounded-sm;
+    @apply w-0 md:w-full lg:w-full h-1;
+  }
+
+  .testimonial-text-group {
+    @apply flex w-full md:w-1/3 lg:w-1/3;
+  }
+
+  .testimonial-text {
+    @apply text-base md:text-xl lg:text-xl;
+    @apply text-gray-100 font-inter;
+  }
+
+  .testimonial-picture-container {
+    @apply flex justify-center items-center;
+    @apply w-full md:w-1/3 lg:w-1/3;
+  }
+
+  .testimonial-picture {
+    @apply flex bg-[#E8C178];
+    @apply w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px];
+    @apply rounded-full object-contain;
+  }
+}
+
+/* Contact Me */
+@layer components {
+  .contactme-section {
+    @apply h-1/2 bg-[#28292c] p-4 md:p-8 lg:p-10;
+  }
+
+  .contactme-title {
+    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-gray-100 font-[Fraunces];
+    @apply text-center font-semibold;
+  }
+
+  .contactme-text {
+    @apply flex justify-center items-center mt-10;
+  }
+
+  .contactme-container {
+    @apply flex flex-col items-center mt-10 gap-5;
+  }
+
+  .contactme-input {
+    @apply w-[250px] md:w-[300px] lg:w-[500px] h-[30px] md:h-[50px] lg:h-[50px] rounded-sm p-2 text-black;
+  }
+
+  .contactme-message {
+    @apply w-[250px] md:w-[300px] lg:w-[500px] rounded-sm h-[70px] md:h-[100px] lg:h-[100px] p-2 text-black text-left;
+  }
+
+  .contactme-btn {
+    @apply text-sm md:text-base lg:text-xl text-[#E8C178] font-[helvetica];
+    @apply border-[#E8C178] rounded-lg hover:bg-black transition;
+    @apply w-[90px] h-[25px] md:w-[150px] md:h-[50px] lg:w-[150px] lg:h-[50px];
+    @apply px-[1px] py-[1px];
+    @apply border-[1px] md:border-[3px] lg:border-[3px];
+  }
+
+  .social-links-container {
+    @apply flex justify-center items-center gap-5;
+  }
+  .social-links {
+    @apply mt-10 w-[30px] h-[30px];
   }
 }
