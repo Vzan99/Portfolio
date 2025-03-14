@@ -340,12 +340,39 @@ body {
 
   .contactme-title {
     @apply text-xl md:text-2xl lg:text-4xl;
-    @apply text-gray-100 font-[Fraunces];
+    @apply text-gray-100 font-fraunces;
     @apply text-center font-semibold;
+  }
+
+  .contactme-box-group {
+    @apply flex flex-col md:flex-row lg:flex-row justify-center items-center;
+    @apply gap-0 md:gap-4 lg:gap-5;
+  }
+
+  .contactme-box {
+    @apply flex justify-center items-center gap-2;
+    @apply w-[300px] md:w-[300px] lg:w-[400px];
+    @apply h-[30px] md:h-[50px] lg:h-[50px];
+    @apply bg-black transition rounded-xl;
+    @apply border-[2px] border-[#E8C178];
+    @apply mt-4 md:mt-4 lg:mt-5;
+  }
+
+  .contactme-box-image {
+    @apply w-[20px] md:w-[25px] lg:w-[25px];
+    @apply h-[20px] md:h-[25px] lg:h-[25px];
+    @apply object-cover;
+  }
+
+  .contactme-box-text {
+    @apply text-base md:text-xl lg:text-xl;
+    @apply text-[#E8C178] font-inter;
   }
 
   .contactme-text {
     @apply flex justify-center items-center mt-10;
+    @apply text-base md:text-xl lg:text-xl;
+    @apply text-gray-100 font-inter;
   }
 
   .contactme-container {
@@ -353,19 +380,24 @@ body {
   }
 
   .contactme-input {
-    @apply w-[250px] md:w-[300px] lg:w-[500px] h-[30px] md:h-[50px] lg:h-[50px] rounded-sm p-2 text-black;
+    @apply w-[300px] md:w-[300px] lg:w-[500px];
+    @apply h-[30px] md:h-[50px] lg:h-[50px];
+    @apply text-black rounded-sm p-2;
   }
 
   .contactme-message {
-    @apply w-[250px] md:w-[300px] lg:w-[500px] rounded-sm h-[70px] md:h-[100px] lg:h-[100px] p-2 text-black text-left;
+    @apply w-[300px] md:w-[300px] lg:w-[500px];
+    @apply h-[100px] md:h-[100px] lg:h-[100px];
+    @apply text-black text-left text-base rounded-sm p-2;
   }
 
   .contactme-btn {
-    @apply text-sm md:text-base lg:text-xl text-[#E8C178] font-[helvetica];
-    @apply border-[#E8C178] rounded-lg hover:bg-black transition;
-    @apply w-[90px] h-[25px] md:w-[150px] md:h-[50px] lg:w-[150px] lg:h-[50px];
-    @apply px-[1px] py-[1px];
-    @apply border-[1px] md:border-[3px] lg:border-[3px];
+    @apply h-[25px] md:h-[50px] lg:h-[50px];
+    @apply w-[85px] md:w-[150px] lg:w-[150px];
+    @apply text-sm md:text-base lg:text-xl;
+    @apply text-[#E8C178] font-inter;
+    @apply border-[#E8C178] border-[1px] md:border-[3px] lg:border-[3px];
+    @apply hover:bg-black rounded-lg transition p-[1px];
   }
 
   .social-links-container {

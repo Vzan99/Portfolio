@@ -3,6 +3,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
+import React from "react";
 
 export default function ContactMe() {
   const validationSchema = Yup.object({
@@ -12,6 +13,12 @@ export default function ContactMe() {
       .required("Email is required"),
     message: Yup.string().required("Message is required"),
   });
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success(`Copied to clipboard: ${text}`, { position: "top-right" });
+    });
+  };
 
   const handleSubmit = (
     values: { name: string; email: string; message: string },
@@ -36,6 +43,32 @@ export default function ContactMe() {
         Feel free to Contact me by submitting the form below and i will get back
         to you as soon as possible
       </p>
+      <div className="contactme-box-group">
+        <div
+          className="contactme-box cursor-pointer"
+          onClick={() => copyToClipboard("prasetyoajinugroho94@gmail.com")}
+        >
+          <img
+            className="contactme-box-image"
+            src="logo-email.png"
+            alt="logo-email"
+          ></img>
+          <div className="contactme-box-text">
+            prasetyoajinugroho94@gmail.com
+          </div>
+        </div>
+        <div
+          className="contactme-box cursor-pointer"
+          onClick={() => copyToClipboard("+62 822-1476-5308")}
+        >
+          <img
+            className="contactme-box-image"
+            src="logo-phone.png"
+            alt="logo-phone"
+          ></img>
+          <div className="contactme-box-text">+62 822-1476-5308</div>
+        </div>
+      </div>
       <Formik
         initialValues={{ name: "", email: "", message: "" }}
         validationSchema={validationSchema}
