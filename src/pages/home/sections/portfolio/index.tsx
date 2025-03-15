@@ -1,59 +1,84 @@
+"use client";
+
+import { useState } from "react";
+
+interface Project {
+  id: number;
+  image: string;
+  alt: string;
+  title: string;
+  description: string;
+  details: string[];
+}
+
 export default function Portfolio() {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  const projects: Project[] = [
+    {
+      id: 1,
+      image: "card-perfume.png",
+      alt: "perfume-image",
+      title: "Gabrielle Essence Eau De Parfum",
+      description:
+        "A premium fragrance retailer wanted a digital solution to help customers explore and personalize perfume recommendations.",
+      details: [
+        "I was responsible for developing both the front-end and back-end of the platform using Next.js, React.js, and Tailwind CSS, ensuring seamless integration with the client’s inventory and payment systems. I was responsible for developing both the front-end and back-end of the platform using Next.js, React.js, and Tailwind CSS, ensuring seamless integration with the client’s inventory and payment systems. I implemented advanced filtering algorithms for personalized recommendations and optimized performance through caching and lazy loading. These enhancements led to a 40% increase in user engagement post-launch, significantly improving user experience and efficiency.",
+      ],
+    },
+    {
+      id: 2,
+      image: "card-htmlcss.png",
+      alt: "htmlcss-image",
+      title: "HTML & CSS Card",
+      description:
+        "A showcase of HTML & CSS projects demonstrating modern design principles and responsive layouts.",
+      details: [
+        "I was responsible for designing and developing a collection of projects showcasing modern design principles and responsive layouts using semantic HTML and advanced CSS techniques. I ensured full responsiveness across all devices and integrated smooth animations and transitions to enhance user experience. The projects received positive feedback for their design clarity and accessibility.",
+      ],
+    },
+  ];
+
+  const selectedProjectData =
+    projects.find((p) => p.id === selectedProject) || null;
+
   return (
     <div className="portfolio-section" id="portfolio">
       <p className="portfolio-title">Portfolio</p>
       <div className="portfolio-group">
-        <div className="portfolio-image-container group">
-          <img
-            src="card-perfume.png"
-            alt="perfume-image"
-            className="portfolio-image"
-          ></img>
-          <div className="portfolio-overlay">Perfume Card</div>
-        </div>
-
-        <div className="portfolio-image-container group">
-          <img
-            src="card-htmlcss.png"
-            alt="htmlcss-image"
-            className="portfolio-image"
-          ></img>
-          <div className="portfolio-overlay">HTML & CSS Card</div>
-        </div>
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="portfolio-image-container group cursor-pointer"
+            onClick={() =>
+              setSelectedProject(
+                selectedProject === project.id ? null : project.id
+              )
+            }
+          >
+            <img
+              src={project.image}
+              alt={project.alt}
+              className="portfolio-image"
+            />
+            <div className="portfolio-overlay">{project.title}</div>
+          </div>
+        ))}
       </div>
-      {/* <p className="portfolio-text">Project Title: "Perfume Card Application for Desktop and Mobile"</p>
-          <p className="portfolio-text">Technologies: Next.js, React.js, Tailwind CSS</p>
-          
-          <p className="portfolio-star-title">Situation:</p>
-          <p className="portfolio-text">
-            A premium fragrance retailer wanted a digital solution to help customers explore 
-            and personalize perfume recommendations. They required a web-friendly application that allowed users to browse perfumes, 
-            filter based on scent profiles, and generate customized perfume cards based on user preferences.
-          </p>
 
-          <p className="portfolio-star-title">Task:</p>
-          <p className="portfolio-text">
-          I was responsible for designing and developing the application that provided an interactive experience for users to explore
-          and create digital perfume cards. The objective was to ensure seamless performance, fast loading times, and an intuitive UI 
-          while maintaining scalability and responsiveness.
+      {selectedProjectData && (
+        <div className="portfolio-details ">
+          <p className="portfolio-card-title">{selectedProjectData.title}</p>
+          <p className="portfolio-text-desc">
+            {selectedProjectData.description}
           </p>
-
-          <p className="portfolio-star-title">Action:</p>
-          <li className="portfolio-text-list">
-            <p className="portfolio-text">Frontend Development: Built a responsive and aesthetically pleasing UI using Next.js and React.js, ensuring a smooth user experience.</p>
-            <p className="portfolio-text">Design & UX: Employed Tailwind CSS to create a clean and elegant design that aligned with the brand's luxury aesthetic.</p>
-            <p className="portfolio-text">Filtering & Recommendation System: Implemented an advanced filtering algorithm to allow users to search perfumes based on notes, brands, and occasions.</p>
-            <p className="portfolio-text">Performance Optimization: Optimized loading times and API calls using caching strategies and lazy loading in Next.js.</p>
-          </li>
-          
-          <p className="portfolio-star-title">Result:</p>
-          <li className="portfolio-text-list">
-            <p className="portfolio-text">Successfully launched the perfume card application, resulting in a 40% increase in user engagement.</p>
-            <p className="portfolio-text">Reduced browsing time by 30% with an improved search and filtering mechanism.</p>
-            <p className="portfolio-text">Achieved positive user feedback on the application's sleek design and ease of use.  </p>
-            <p className="portfolio-text">Improved customer retention through personalized recommendations and saved preferences.</p>
-            <p className="portfolio-text">The client reported a significant boost in online perfume sales and customer satisfaction.</p>
-          </li> */}
+          <ul className="portfolio-text-list">
+            {selectedProjectData.details.map((detail, index) => (
+              <li key={index}>{detail}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

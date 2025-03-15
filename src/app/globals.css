@@ -28,14 +28,16 @@ body {
 /* Navbar */
 @layer components {
   .navbar {
-    @apply flex justify-between items-center;
-    @apply h-[30px] md:h-[50px] lg:h-[50px] bg-[#25252a];
+    @apply flex justify-between items-center shadow-xl;
+    @apply h-[30px] md:h-[50px] lg:h-[50px] bg-[#F5F5F5];
     @apply px-7 md:px-10 lg:px-10;
+    @apply text-black z-50;
   }
 
   .mylogo {
     @apply rounded-full object-contain;
     @apply h-[20px] md:h-[40px] lg:h-[40px];
+    @apply border-2 border-black;
   }
 
   .navbar-links-group {
@@ -44,7 +46,7 @@ body {
 
   .navbar-button {
     @apply text-sm md:text-base lg:text-lg font-inter;
-    @apply hover:text-[#E8C178] transition;
+    @apply hover:text-[#0D9488] transition;
   }
 }
 
@@ -68,12 +70,12 @@ body {
   /* Text Styling */
   .hero-text {
     @apply text-sm md:text-2xl lg:text-3xl;
-    @apply text-gray-100 font-fraunces;
+    @apply text-gray-100 font-fraunces font-medium;
   }
 
   .hero-name {
     @apply text-xl md:text-3xl lg:text-5xl;
-    @apply text-[#E8C178] font-fraunces font-medium lg:pb-2;
+    @apply text-[#E8C178] font-fraunces font-semibold lg:pb-2;
   }
 
   .hero-image-container {
@@ -113,7 +115,7 @@ body {
 
   .aboutme-text {
     @apply text-sm md:text-xl lg:text-2xl;
-    @apply text-gray-100 font-inter;
+    @apply text-gray-100 font-inter text-justify;
     @apply ml-4 md:ml-8 lg:ml-12;
     @apply md:mt-3 lg:mt-8;
   }
@@ -194,30 +196,34 @@ body {
   }
 
   .portfolio-overlay {
-    @apply flex justify-center items-center;
+    @apply flex justify-center items-center text-center;
     @apply text-sm md:text-base lg:text-xl font-inter;
     @apply absolute inset-0 transition-all duration-500;
     @apply bg-black/50 opacity-0 group-hover:opacity-100;
   }
 
-  .portfolio-text {
+  .portfolio-details {
+    @apply flex flex-col;
+    @apply md:px-0 lg:px-24;
+    @apply md:pb-5 lg:pb-5;
+  }
+
+  .portfolio-text-desc {
     @apply text-sm md:text-xl lg:text-xl;
     @apply text-gray-100 font-inter;
-    @apply ml-4 md:ml-10 lg:ml-12;
-    @apply mt-2 md:mt-6 lg:mt-8;
+    @apply mt-1 md:mt-2 lg:mt-4;
   }
 
   .portfolio-text-list {
     @apply flex flex-col text-sm md:text-xl lg:text-xl;
     @apply text-gray-100 font-inter;
-    @apply md:ml-10 lg:ml-12;
+    @apply mt-1 md:mt-2 lg:mt-4;
+    @apply text-justify;
   }
 
-  .portfolio-star-title {
-    @apply text-xl md:text-2xl lg:text-4xl;
-    @apply text-gray-100 font-inter;
-    @apply ml-4 md:ml-10 lg:ml-12;
-    @apply mt-2 md:mt-6 lg:mt-8;
+  .portfolio-card-title {
+    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply text-[#E8C178] font-fraunces;
   }
 }
 
@@ -230,9 +236,6 @@ body {
     @apply pt-4 md:pt-6 lg:pt-8;
     @apply pb-4 md:pb-10 lg:pb-14;
   }
-  /* 
-  @apply px-6 md:px-14 lg:px-28;
-  @apply py-2 md:py-3 lg:py-8; */
 
   .experience-title {
     @apply text-xl md:text-3xl lg:text-4xl;
@@ -245,11 +248,6 @@ body {
     @apply flex gap-4 md:gap-6 lg:gap-8;
     @apply ml-2 md:ml-8 lg:ml-12;
     @apply mt-4 md:mt-6 lg:mt-10;
-  }
-
-  .experience-text {
-    @apply text-xl md:text-2xl lg:text-4xl;
-    @apply text-gray-100 font-inter;
   }
 
   .experience-group-year {
@@ -284,7 +282,7 @@ body {
   }
 
   .experience-job-desc {
-    @apply text-base md:text-xl lg:text-xl;
+    @apply text-sm md:text-xl lg:text-xl;
     @apply text-gray-100 font-inter ml-6;
   }
 }
@@ -371,8 +369,8 @@ body {
     @apply flex justify-center items-center gap-2;
     @apply w-[300px] md:w-[400px] lg:w-[400px];
     @apply h-[30px] md:h-[40px] lg:h-[50px];
-    @apply bg-black transition rounded-xl;
-    @apply border-[2px] border-[#E8C178];
+    @apply transition rounded-xl;
+    @apply border-[2px] border-[#E8C178] hover:bg-black;
     @apply mt-4 md:mt-4 lg:mt-5;
   }
 
@@ -388,7 +386,7 @@ body {
   }
 
   .contactme-box-text {
-    @apply text-base md:text-xl lg:text-xl;
+    @apply text-base md:text-lg lg:text-xl;
     @apply text-[#E8C178] font-inter;
   }
 
